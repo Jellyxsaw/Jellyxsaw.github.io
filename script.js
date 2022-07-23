@@ -6,6 +6,7 @@ var password =30566
 var input;
 var count=0;
 var limit=3;
+var tries=4;
 var out=false;
 
 button.addEventListener("click",function(){
@@ -24,8 +25,9 @@ button.addEventListener("click",function(){
 
 while(password!=input && !out){
     count++
+    tries--
     if(count<=limit){
-        input=prompt("請輸入密碼")
+        input=prompt("請輸入密碼，您還有"+tries+"次機會")
     }
     else{
         out=true
