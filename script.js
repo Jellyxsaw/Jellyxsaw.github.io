@@ -36,6 +36,7 @@ while(password!=input && !out){
 
 if(out){
     alert("你誰!?");
+    window.close()
 }
 else{
    alert("你好啊"); 
