@@ -25,7 +25,7 @@ button.addEventListener("click",function(){
 while(password!=input && !out){
     count++
     if(count<=limit){
-        input=prompt("請再試一次")
+        input=prompt("請輸入密碼")
     }
     else{
         out=true
