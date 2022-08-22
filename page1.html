@@ -5,7 +5,27 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>內文1</h1>
+        <h1>8/22練習</h1>
+        <p>a001: hello</p>
+        <p>題目:輸入字串 "str", 輸出 "str, world"</p>
+        <p>思路:直接print完成</p>
+        <p>答案:<br/>
+            print('hello, '+input(),end='')</p>
+        <br/>
+        <p>a002: 簡易加法</p>
+        <p>題目:輸入以空白隔開之兩個整數，輸出兩整數之和</p>
+        <p>思路:先split成字串，再輸出index0和1的相加</p>
+        <p>答案:<br/>
+            q=input().split() <br/>
+            print(int(q[0])+int(q[1]))</p>
+        <br/>
+        <p>a003: 簡易占卜</p>
+        <p>題目:輸入以空白分開之M、D，令S=(M*2+D)%3，S=2輸出大吉/=1輸出吉/=0輸出普通 </p>
+        <p>思路:先split後計算S，再用IF完成條件輸出</p>
+        <p>答案: <br/>
+            k=input().split() <br/>
+            t=int(k[0])*2+int(k[1]) <br/>
+            print("大吉") if t%3==2 else print('吉') if t%3==1 else print('普通')</p>
         <p><a href="index.html">回首頁</a></p>
     </body>
     </div>
