@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <title>8/23練習</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>8/23練習</h1>
+        <p>a004: 閏年檢測</p>
+        <p>題目:輸入若干數列，分別輸出是平年或閏年</p>
+        <p>思路:因為不知道有多少input，以無限迴圈+try/except處理,在try裡面寫判斷式</p>
+        <p>答案:<br/>
+        while(True):<br/>
+            try:<br/>
+                y=int(input())<br/>
+                print('閏年') if y % 400 == 0 else print('平年') if y % 100 == 0 else print('閏年') if y % 4 == 0 else print('平年')<br/>
+            except:<br/>
+                break</p>
+        <br/>
+        <p>a005: 數列</p>
+        <p>題目:先輸入數列的數量，再分別輸入若干數列的前四項(等比或等差)，輸出數列及第五項</p>
+        <p>思路:先迴圈至指定的數量，再以IF判斷為等比或等差，輸出原數列後再輸出第五項</p>
+        <p>答案:<br/>
+            k=int(input())<br/>
+            i=0<br/>
+            while i</p>k:
+                li=list(map(int,input().split()))<br/>
+                if li[2]-li[1]==li[1]-li[0]:<br/>
+                    for num in li :<br/>
+                        print(num,end=' ')<br/>
+                    print(li[3]*2-li[2])<br/>
+                else:<br/>
+                    for num in li :<br/>
+                        print(num,end=' ')<br/>
+                    print(int(li[3]**2/li[2]))<br/>
+                i+=1<br/>
+            </p>
+        <br/>
+        <p>a006: 一元二次方程式</p>
+        <p>題目:輸入a、b、c代表ax^2+bx+c=0，輸出解 </p>
+        <p>思路:先計算判斷式，再用IF分別輸出</p>
+        <p>答案: <br/>
+            a,b,c=list(map(int,input().split()))<br/>
+            judge=b**2-4*a*c<br/>
+            if judge>0:<br/>
+                print(f"Two different roots x1={int((b*-1+judge**0.5)/a/2)} , x2={int((b*-1-judge**0.5)/a/2)}")<br/>
+            elif judge==0:<br/>
+                print(f"Two same roots x={int((b*-1+judge**0.5)/a/2)}")<br/>
+            else:<br/>
+                print("No real root")<br/>
+            
+            
+        <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M7.4 42.65v-24.9L24.1 5.3l16.5 12.45v24.9H27.5v-14.1h-7.05v14.1ZM11.05 39h5.75V24.9h14.35V39h5.8V19.6L24.1 9.85 11.05 19.6ZM24 24.4Z"/></svg>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>

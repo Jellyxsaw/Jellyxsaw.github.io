@@ -2,12 +2,6 @@ var title=document.getElementById("title")
 var content=document.getElementById("content")
 var button=document.getElementById("button")
 var article=document.getElementById("article")
-var password =30566
-var input;
-var count=0;
-var limit=3;
-var tries=4;
-var out=false;
 
 button.addEventListener("click",function(){
     article.innerHTML=article.innerHTML+`
@@ -22,24 +16,4 @@ button.addEventListener("click",function(){
     ;
 }
 )
-
-while(password!=input && !out){
-    count++
-    tries--
-    if(count<=limit){
-        input=prompt("請輸入密碼，您還有"+tries+"次機會")
-    }
-    else{
-        out=true
-    }
-}
-
-if(out){
-    alert("你誰!?");
-    window.close()
-}
-else{
-   alert("你好啊"); 
-}
-
 
