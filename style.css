@@ -26,6 +26,9 @@ button{
     font-family: sans-serif;
     font-family: 'Noto Sans', sans-serif;
     font-family: 'Noto Sans TC', sans-serif;
+    background-image: radial-gradient(farthest-corner at 40px 40px,
+    rgb(255, 255, 255) 20%, rgb(0, 0, 0) 80%);
+    background-size: 250vh 150vw;
   }
   
   table {
