@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+    <head>
+        <title>8/24練習</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>8/24練習</h1>
+        <p>a009: 解碼器</p>
+        <p>題目:輸入一個string，輸出ASCII值-7之string</p>
+        <p>思路:分別輸出每個字母-7後的值</p>
+        <pre>答案:<br/>
+            str1=input()
+
+            for i in range(len(str1)):
+                print(chr((ord(str1[i]))-7),end="")</pre>
+        <br/>
+        <p>a010: 因數分解</p>
+        <p>題目:輸入數字k，輸出指定型態之因數分解，例如20 -> 2^2 * 5</p>
+        <pre>思路:因為二次方以上要輸出次方，一次方則否，故建立memo={}來記憶資料。
+            以for迴圈從2開始找因數，又因數成雙成對，故範圍只需找到根號k為止。
+            (若以2為底，再以奇數找會更快，但這題不需要所以沒用。)
+            若k整除,則i加入memo。若i以在memo以，則memo的計數+1。
+            最後輸出memo裡面的資料，若某因數計數只有1，則不輸出次方。
+            若計數>1，則輸出次方。(輸出方式可以寫得更簡潔)
+        </pre>
+        <textarea readonly rows="24
+        " style="background:none; border:none; resize:none; outline:none; width:100%;">
+          答案:
+          num=int(input())
+          memo={}
+          for i in range(2,int(num**0.5)+1):
+              while num%i==0:
+                  if i in memo:
+                      memo[i][1]+=1
+                  else:memo[i]=[i,1]
+                  num=num//i
+          if num>1:
+              if num in memo:
+                  memo[num][1] += 1
+              else:
+                  memo[num] = [num, 1]
+          def output(a):
+              for i in a:
+                  if a[i][1]>1:
+                      print(f"{a[i][0]}^{a[i][1]}",end='')
+                  else:print(i,end='')
+                  if i != max(a):
+                      print(' * ',end='')
+              return ""
+          </textarea>
+        <br/>
+        <p>a013: 羅馬字母轉換</p>
+        <p>題目:輸入n個兩項羅馬字母，分別輸出差額絕對值之羅馬字母 </p>
+        <pre>思路:先將羅馬數字轉換成數字進行計算。羅馬數字轉成字母的方式是先建立翻譯字典。
+            再個別轉換成1,5,10等等數字，再從減法的規則下手計算。將數字轉換為羅馬字母以暴力破解。
+            希望能有比較優雅的方式從數字轉為羅馬字母。(暴力方式太長就不貼上來了)
+        </pre>
+        <textarea readonly rows="24
+        " style="background:none; border:none; resize:none; outline:none; width:100%;">
+        答案:
+        def romturn(k):
+        table={'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        lst=[i for i in k]
+        ans=0
+        for i in range(len(lst)):
+            lst[i]=table[lst[i]]
+        for i in range(len(lst)):
+            if i==len(lst)-1:
+                ans+=lst[i]
+                break
+            if lst[i]>=lst[i+1]:
+                ans+=lst[i]
+            else:ans-=lst[i]
+        return ans
+        def turnrom(a) [暴力破解快兩百行]
+        while True:
+            try:
+                a, b = input().split()
+                print(turnrom(abs(romturn(a) - romturn(b))))
+            except:break     
+        </textarea>
+            
+            
+        <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M7.4 42.65v-24.9L24.1 5.3l16.5 12.45v24.9H27.5v-14.1h-7.05v14.1ZM11.05 39h5.75V24.9h14.35V39h5.8V19.6L24.1 9.85 11.05 19.6ZM24 24.4Z"/></svg>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>
