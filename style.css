@@ -27,7 +27,7 @@ button{
     font-family: 'Noto Sans', sans-serif;
     font-family: 'Noto Sans TC', sans-serif;
     background-image: radial-gradient(farthest-corner at 40px 40px,
-    rgb(255, 255, 255) 20%, rgb(0, 0, 0) 80%);
+    rgb(228, 227, 227) 10%,red 155%, rgb(0, 0, 0) 80%);
     background-size: 250vh 150vw;
   }
   
@@ -46,7 +46,7 @@ button{
   th {
     background-color: rgb(235,235,235);
   }
-  
+
   td {
     text-align: center;
   }
@@ -64,3 +64,14 @@ button{
   caption {
     padding: 10px;
   }
+.thinkroute{font-weight: bold;
+
+}
+.quest{
+  font-style: italic;
+}
+.questname{
+  font-size: 1.3rem;
+  font-style: oblique;
+  color: rgb(181, 10, 223);
+}
