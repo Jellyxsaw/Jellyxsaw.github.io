@@ -1,27 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,600&display=swap');
-button{
-    width: 800px;
-    height: 40px;
-    color:aliceblue;
-    background-color: rgb(25, 125, 184);
-}
-.container {
-    max-width: 200px;
-    margin: auto;
-  }
-  
-  .svg-circle:hover + .svg-text-group {
-    opacity: 0;
-  }
-  .material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
-  }
   html {
     font-family: sans-serif;
     font-family: 'Noto Sans', sans-serif;
@@ -122,7 +101,7 @@ input {
   display: none;
 }
 label,
-ul {
+.menu2>ul {
   border: 1px solid #cecfd5;
   border-radius: 6px;
 }
@@ -158,16 +137,16 @@ label:hover {
 #toggle:checked ~ .menu2 {
   max-height: 500px;
 }
-ul {
+.menu2>ul {
   list-style: none;
   margin: 8px 0 0 0;
   padding: 0;
   width: 100px;
 }
-li {
+.menu2>li {
   border-bottom: 5px solid #cecfd5;
 }
-li:last-child {
+.menu2>li:last-child {
   border-bottom: 0;
 }
 #sec{
@@ -184,4 +163,60 @@ li:last-child {
 }
 a:hover {
   color: #ff7b29;
+}
+.nav_bg {
+	height: 76px;
+	line-height: 44px;
+	background-image: radial-gradient(farthest-corner at 40px 40px,
+    rgb(235, 111, 10) 10%,rgb(221, 224, 8) 155%, rgb(68, 187, 21) 80%);;
+}
+.nav_bg .wrap {
+	width: 800px;
+	display: block
+}
+.nav {
+	float: left;
+}
+
+.nav a {
+	display: block;
+	float: left;
+	padding: 0 20px;
+	color: #fff;
+	font-size: 16px;
+	height: 44px;
+	line-height: 44px;
+  font-style: italic;
+}
+
+.nav {
+	position: relative;
+	z-index: 1;
+
+}
+
+.nav .nLi {
+	float: left;
+	position: relative;
+	display: inline;
+}
+.nav .nLi .e {
+    padding: 0 0 0 300px;
+	float: left;
+}
+.nav .nLi .d {
+    padding: 0 0 0 200px;
+	float: left;
+}
+.nav .nLi h3 a {
+	display: block;
+}
+
+.nav .nLi .d a:hover {
+	background: #0D5780;
+	color: #fff;
+}
+.nav .on h3 a {
+	background: #1784db;
+	color: #fff;
 }
