@@ -13,8 +13,23 @@
         第二篇
     </h2>
 <pre>
-Pseudo-selectors:虛擬類別，例如虛擬子代p:first-child，可以讓某個標籤下的第一個p方塊使用CSS，
-</pre>
+Pseudo-classes:虛擬類別，例如虛擬子代p:first-child，可以讓某個標籤下的第一個p方塊使用CSS，這樣在新增段落時便不需要重寫CSS。
+也可以通過hover讓使用者游標觸碰到時有其他效果/p::first-line則可以讓P標籤的第一行有CSS效果。
+又如果你只想讓第一個段落的第一行有此效果，則使用p:first-child::first-line</pre>
+<a href="">例如這樣</a>
+<pre>
+而使用::before{content="內容"}可以在某標籤的前面或後面加上特定內容</pre>
+<p class="arrow_box">例如這樣</p>
+<pre>
+又!important可以優先使用CSS不被覆蓋，:focus可以讓使用者在選取物件的時候套用CSS</pre>
+<textarea name="" id="" cols="10" rows="2" readonly>例如這樣</textarea>
+<pre>
+而使用:active可以在物件被點擊的時候套用CSS</pre>
+<p class="act">點我</p>
+<pre>
+而使用::selection可以讓文字被選取時套用CSS</pre>
+<p class="select">選我就消失給你看</p>
+<pre>透過</pre><a href="https://flukeout.github.io/">CSS Diner</a><pre>學習到虛擬標籤的各種用法，非常棒。</pre>
 </body>
 <a href="前端1.html"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="40px" viewBox="0 0 24 24" width="40px" fill="#000000"><rect fill="none" height="24" width="24"/><path d="M9,19l1.41-1.41L5.83,13H22V11H5.83l4.59-4.59L9,5l-7,7L9,19z"/></svg>
 <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M7.4 42.65v-24.9L24.1 5.3l16.5 12.45v24.9H27.5v-14.1h-7.05v14.1ZM11.05 39h5.75V24.9h14.35V39h5.8V19.6L24.1 9.85 11.05 19.6ZM24 24.4Z"/></svg>
