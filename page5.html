@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <title>8/26練習</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <body>
+      <nav>
+        <div class="nav-center">
+          <h4><a href="index.html">X'saw Blog</a></h4>
+          <ul class="nav-links">
+            <li><a href="page1.html">python practice</a></li>
+            <li><a href="前端1.html">web practice</a></li>
+            <li><a href="works.html">my works</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+      </nav>
+        <h1>8/26練習</h1>
+        <p class="questname">a021: 解碼器</p>
+        <pre class="quest">題目:輸入含運算子的兩數，輸出結果</pre>
+        <pre class="thinkroute">思路:本題應該是在考突破預設變數上限時之計算，不過python的變數容量似乎超過題目，故沒有任何問題。</pre>
+        <textarea readonly rows="3" style=" border:none; resize:none; outline:none;">
+        print(eval(input().replace('/','//')))
+          </textarea>
+        <br/>
+        <p class="questname">a022: 迴文</p>
+        <pre class="quest">題目:輸入字串k，判斷其是否為迴文</pre>
+        <pre class="thinkroute">思路:先將其砍半，也就是(len(k)+1)//2，再來運用str的[]，比對從頭到中間和從尾到中間字串是否一樣。
+          又額外設計當長度=1時判斷為真</pre>
+        <textarea readonly rows="7" style=" border:none; resize:none; outline:none;">
+          a=input()
+          print('yes')if a[len(a)-1:len(a)-1-(len(a)+1)//2:-1]==a[:(len(a)+1)//2]  or len(a)==1 else print('no')
+        </textarea>
+        <br/>
+        <p class="questname">a024: 最大公因數</p>
+        <pre class="quest">題目:輸入兩數，輸出最大公因數 </pre>
+        <pre class="thinkroute">思路:可以用作弊的方式import math，這邊使用簡單的輾轉相除，令K為A餘B，再跑while直到K為0。
+        </pre>
+        <textarea readonly rows="11" style=" border:none; resize:none; outline:none;">
+        a,b=input().split()
+        a,b=max(int(a),int(b)),min(int(a),int(b))
+        k=a%b
+        while k!=0:
+            a=b
+            b=k
+            k=a%b
+        print(b)
+        </textarea>
+            
+        <br/>    
+        <a style="color:white;" href="page4.html"><span class="material-symbols-outlined">
+arrow_circle_left</a>
+</span>
+        <span class="material-symbols-outlined"><a style="color:white;" href="index.html">
+      home</a>
+      </span>
+        <a style="color:white;" href="page6.html"><span class="material-symbols-outlined">
+arrow_circle_right
+</span>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>

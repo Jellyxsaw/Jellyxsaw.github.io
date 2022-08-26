@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,600&display=swap');
-  html {
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+html {
     font-family: sans-serif;
     font-family: 'Noto Sans', sans-serif;
     font-family: 'Noto Sans TC', sans-serif;
     background-image: radial-gradient(farthest-corner at 40px 40px,
     rgb(228, 227, 227) 10%,red 155%, rgb(0, 0, 0) 80%);
-    background-size: 400vh 150vw;
+    background-size: 165vh 100vw;
     background-repeat: no-repeat;
-  }
-  a:hover{
-    color: hotpink;
+    background-image: url(背景.jpg);
   }
   table {
     border-collapse: collapse;
@@ -32,7 +32,7 @@
   td {
     text-align: center;
   }
-  p,pre,textarea{font-size: 1vw;
+  p,pre{font-size: 1vw;
 
   }
   tr:nth-child(even) td {
@@ -49,13 +49,21 @@
 .thinkroute{font-weight: bold;
 
 }
+textarea{
+  color: white;
+  background:radial-gradient(farthest-corner at 40px 40px,
+  rgb(38, 1, 107) 10%,rgb(51, 116, 236) 155%);
+  border: #88b7d5;
+  border-radius: 2%;
+  width:35%;
+}
 .quest{
   font-style: italic;
 }
 .questname{
   font-size: 1.3rem;
   font-style: oblique;
-  color: rgb(181, 10, 223);
+  color: rgb(0, 217, 255);
 }
 .arrow_box {
 	position: relative;
@@ -85,7 +93,7 @@
 	border-width: 36px;
 	margin-top: -36px;
 }
-textarea:focus{
+.click:focus{
   font-size: 1.5em;
   color: pink;
 }
@@ -121,19 +129,13 @@ label:hover {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
   color: #9799a7;
 }
-.menu {
-  max-height: 0;
-  overflow: hidden;
-  transition: all .15s ease;
-}
+
 .menu2 {
   max-height: 0;
   overflow: hidden;
   transition: all .15s ease;
 }
-#toggle_1:checked ~ .menu {
-  max-height: 500px;
-}
+
 #toggle:checked ~ .menu2 {
   max-height: 500px;
 }
@@ -161,62 +163,91 @@ label:hover {
   padding: 6px 12px  !important;
   text-decoration: none  !important;
 }
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  color: hsl(0, 0%, 100%);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-family: "Roboto", sans-serif;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+
+nav:first-child {
+  background: white;
+  height: 4rem;
+  display: grid;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.nav-center {
+  width: 90vw;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-center h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  color: hsl(205, 78%, 60%);
+}
 a:hover {
-  color: #ff7b29;
+  color: hsl(205, 78%, 60%);
 }
-.nav_bg {
-	height: 76px;
-	line-height: 44px;
-	background-image: radial-gradient(farthest-corner at 40px 40px,
-    rgb(235, 111, 10) 10%,rgb(221, 224, 8) 155%, rgb(68, 187, 21) 80%);;
+a:link{
+  color: hsl(205, 78%, 60%);
 }
-.nav_bg .wrap {
-	width: 800px;
-	display: block
+a:visited{
+  color: hsl(205, 78%, 60%);
 }
-.nav {
-	float: left;
+.nav-links {
+  display: flex;
 }
-
-.nav a {
-	display: block;
-	float: left;
-	padding: 0 20px;
-	color: #fff;
-	font-size: 16px;
-	height: 44px;
-	line-height: 44px;
-  font-style: italic;
+nav ul a {
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 1rem;
+  color: hsl(205, 86%, 17%);
+  letter-spacing: 0.2rem;
+  margin-right: 1rem;
+  margin: 0px 150px 0px 0px ;
+}
+nav ul a:hover {
+  color: hsl(205, 78%, 6%);
 }
 
-.nav {
-	position: relative;
-	z-index: 1;
-
-}
-
-.nav .nLi {
-	float: left;
-	position: relative;
-	display: inline;
-}
-.nav .nLi .e {
-    padding: 0 0 0 300px;
-	float: left;
-}
-.nav .nLi .d {
-    padding: 0 0 0 200px;
-	float: left;
-}
-.nav .nLi h3 a {
-	display: block;
-}
-
-.nav .nLi .d a:hover {
-	background: #0D5780;
-	color: #fff;
-}
-.nav .on h3 a {
-	background: #1784db;
-	color: #fff;
-}
