@@ -8,10 +8,9 @@ html {
     font-family: 'Noto Sans', sans-serif;
     font-family: 'Noto Sans TC', sans-serif;
     background-image: radial-gradient(farthest-corner at 40px 40px,
-    rgb(228, 227, 227) 10%,red 155%, rgb(0, 0, 0) 80%);
-    background-size: 165vh 100vw;
+    rgb(21, 11, 122) 0%, rgb(177, 7, 35) 100%);
+    background-size: 400vh 150vw;
     background-repeat: no-repeat;
-    background-image: url(背景.jpg);
   }
   table {
     border-collapse: collapse;
