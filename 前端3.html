@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>第三篇</title>
 </head>
 <body>
-  <nav>
+  <nav style="position:sticky;top:0px;">
     <div class="nav-center">
       <h4><a href="index.html">X'saw Blog</a></h4>
       <ul class="nav-links">
@@ -24,14 +24,35 @@
     <h2>
         第三篇
     </h2>
+
+<textarea readonly rows="40" style="background: none; border:none; resize:none; outline:none; width:100%;font-size:1.2rem">
+  position:位置屬性，十分重要，決定物件放置的位置。
+屬性有:absolute-絕對位置，移出圖層//fixed-也會移出圖層，不過會隨著網頁移動而移動
+sticky-比較特別，不移出圖層，可是當網頁滑過後會一直黏在上方，直到母代離開頁面為止。例如本網站的標題列便是使用sticky。
+(母代盡量要有position屬性才能控制子代元素的位置)
+max min clamp CSS的計算函數，可以用來設定數值的最大最小值。clamp要求輸入三個數，可以居間調整。
+例如背景可以用min函數來調整不同長度頁面的大小以維持比例。
+利用CSS裡面的var變數，可以先預設好幾組背景風格，例如--primary--color:red，這樣之後的CSS在代如時就可以採用，需要修改也可以一次修改。
+也可以利用var(--primary--color,red)來確定是否運作，因為若--primary--color沒有運作時會取得後面red的值，若有運作則不會取得red若有運作則不會取得red。
+又你可以在全域宣告後在個別群組裡再宣告值的更動，而個別群組會以群組宣告為主。
+form:可以不透過後端資料庫，直接在網頁存取使用者的輸入。常以div>lable+input一組的形式出現。
+其中lable要包含for屬性，與input的ID同名，代表其和該input有關連/input除了要指定type(如text)外需要指定name屬性，讓form儲存資料。並有id同label更方便操作。
+另外選單則是例如<select name="Car" ><option value="mercedes" selected>Mercedes</option>其中option的value將代表回傳form的資料。selected則是更改預設的選項。
+又可以運用例如<optgroup label="Clothing">來對選項進行分組，其中label會秀出標題。
+radio則是以點像式來做選項。另外radio用name來分組，意即若要有多選的效果，則可以用不同的name來寫。
+或製作多選也可以使用checkbox。
+button:製作按鈕，有分三個type。第一個為submit，使用者可以提交資料//第二個為reset，清除資料//第三個為button，可以製作任何效果，和JS互動。
+fieldset:可以將多個input平行整合，方便輸入。又其中可以放入legend作為標題說明。
+又可以在input掛上required屬性，使其成為必填。minlength則是最少輸入字元//minlength則是最多輸入字元，可以兩者並用。
+而min//max屬性則限制輸出值的最小//最大值。而pattern則是能限制輸入格式，例如 pattern="(\d{5}([\-]\d{4})?)"代表連續5個數字後-連續4個數字。
+可以使用title屬性來告知使用者正確的輸入格式。又Email和Website等已經有預設的輸入格式，無須再增加。
+可以用valid//invalid屬性來提示使用者格式正確與否(valid:邊框綠//invalid邊框紅)
+
+        
+</textarea>
 </body>
-<a style="color:white;" href="前端2.html"><span class="material-symbols-outlined">
-arrow_circle_left</a>
-</span>
-<span class="material-symbols-outlined"><a style="color:white;" href="index.html">
-      home</a>
-      </span>
-<a style="color:white;" href="前端4.html"><span class="material-symbols-outlined">
-arrow_circle_right
-</span>    
+
+<span class="material-symbols-outlined"><a style="color:white;" href="前端2.html">arrow_circle_left</a></span>
+<span class="material-symbols-outlined"><a style="color:white;" href="index.html">home</a></span>
+<span class="material-symbols-outlined"><a style="color:white;" href="前端4.html">arrow_circle_right </a></span>   
 </html>
