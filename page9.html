@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <title>8/30練習</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <body>
+      <nav style="position:sticky;top:0px;">
+            <div class="nav-center">
+          <h4><a href="index.html">X'saw Blog</a></h4>
+          <ul class="nav-links">
+            <li><a href="page1.html">python practice</a></li>
+            <li><a href="前端1.html">web practice</a></li>
+            <li><a href="works.html">my works</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+      </nav>
+        <h1>8/30練習</h1>
+        <p class="questname">a065: 提款卡密碼</p>
+        <pre class="quest">題目:輸入字串L，輸出L兩兩元素之間的ASCII碼之差</pre>
+        <pre class="thinkroute">思路:用絕對值來輸出差，蠻簡單。
+        </pre>
+        <textarea readonly rows="3" style=" border:none; resize:none; outline:none;">
+          a=input()
+          for i in range(6):
+              print(abs(ord(a[i])-ord(a[i+1])),end='')</textarea>
+        <br/>
+        <p class="questname">a095: 麥哲倫的陰謀</p>
+        <pre class="quest">題目:輸入m個犯人，其中n(n至少為1)個犯人頭上有紅帽子(保證m大於等於n)。<a href="https://zerojudge.tw/ShowProblem?problemid=a095">規則在這</a></pre>
+        <pre class="thinkroute">思路:若只有一頂紅帽子，則紅帽子人看到大家都沒帽子，第一天就逃出去，第二天大家也逃走(知道只有一頂)。
+          若有兩頂紅帽子，則紅帽子人第二天看到唯一一頂紅帽子第一天沒逃走，就知道自己也是紅帽子人，第二天兩個紅帽子人逃走，第三天大家逃走。
+          故可推知天數為n+1；但若大家都是紅帽子人，就會一起逃走，故在m=n情況，天數就是n。
+        </pre>
+        <textarea readonly rows="8" style=" border:none; resize:none; outline:none;">
+          while True:
+          try:
+              a,b=input().split()
+              a,b=int(a),int(b)
+              if a==b:
+                  print(a)
+              else:print(b+1)
+          except:break</textarea>
+        <br/>     
+        <p class="questname">a104: 排序</p>
+        <pre class="quest">題目:輸入多筆分開的數字資料，要求輸出由小至大的數字字串。</pre>
+        <pre class="thinkroute">思路:忽視第一個值，直接將字串spilit成list後轉int，sorted排序後再轉回str，再用join輸出成字串。</pre>
+        <textarea readonly rows="6" style=" border:none; resize:none; outline:none;">
+          while True:
+          try:
+              a,b=input(),input().split()
+              print(' '.join(map(str,sorted(map(int,b)))))
+          except:
+              break</textarea>
+        <br/>
+        <a style="color:white;" href="page8.html"><span class="material-symbols-outlined">
+arrow_circle_left</a>
+</span>
+        <span class="material-symbols-outlined"><a style="color:white;" href="index.html">
+      home</a>
+      </span>
+        <a style="color:white;" href="page7.html"><span class="material-symbols-outlined">
+arrow_circle_right
+</span>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>

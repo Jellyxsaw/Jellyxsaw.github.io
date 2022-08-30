@@ -24,12 +24,25 @@
     <h2>
         第N篇
     </h2>
-    <textarea readonly rows="24" style=" border:none; resize:none; outline:none;">
+    <textarea readonly rows="40" style="background: none; border:none; resize:none; outline:none; width:100%;font-size:1.2rem">
   flex和grid:flex是最基本的更改排列方式，可以從預設的垂直改成水平，例如display: flex，也可以再設定回垂直透過flex-direction: column;
   而grid比較後面才出來的屬性，其優點在於可以輕易地排列垂直或水平的物件，並且使其貼齊。例如display: grid;grid-template-columns: 75px 75px 75px;
   grid-template-rows: 75px 75px;gap: 32px;可以輕鬆排列出2*3的方格，並且之後若需要再加一排也很容易。
-  另外grid只設定母代即可，flex需要設定子代。
-    </textarea>
+  另外grid以母代為主，flex以子代為主。gap屬性可以設定間隔。子代可以設定grid-column(row)-start(end)屬性來調整位置或者用grid-column(row): 1(起始線) / 6(結束線);
+  甚至更進階的使用grid-area: 1 / 1 / 3 / 6(也可以使用-1來代表從後面數回來)來代表row前//col前//row後//col後。
+  或者對每個子代設定grid-area:top//grid-area:down，然後在母代grid-template-areas:'top top top' 'down down down'來代表上面三格是top下面三格是down。此排列方式可以用.來代表空格。
+  其中可以用span來計算:例如2/span3 == 2/5 or span3/7 == 4/7。
+  子代也可以用justify(align)-self屬性，可以就水平方向(垂直方向)start:貼齊開始 | end:貼齊最後 | center:中心 | stretch:填滿。也可以用place-self，需求兩個屬性，分別為[align-self / justify-self]
+  母代同理也可以使用justify(align)-items。又母代可以使用justify(align)-content，在grid子代沒有填滿母代container的時候運用。除了上述四種屬性外還有space-around:平均分散不貼格線 | space-between:平均分散貼格線 | space-evenly:平均分散。
+  母代還可以用運grid-auto-columns(row)來使子代可以超出母代設定的格線擺放。grid-auto-flow:column 可以讓擺放子代的順序從填滿row改成填滿column。
+  fr可以用來平均分割，例如1fr 5fr可以分成1/6 5/6的區塊。運用repeat:例如repeat(2, 150px)可以自動建立兩個150px。
+  minmax()專屬grid的函數，例如repeat(5, minmax(150px, 200px));製造出來的最小不會小於150px最大不會大於200px，另外也可以使用clamp取得平衡。
+  auto-fit，可以在不知道母代大小的情況使用，例如repeat(auto-fit, 200px);可以盡可能的產生200px的col or row。
+  應用:grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));能盡可能的產生columns。
+
+</textarea>
+  <a href="https://css-tricks.com/snippets/css/complete-guide-grid/#aa-grid-properties">這裡有非常完整的說明</a>
+  <a href="https://cssgridgarden.com/">這裡有練習的有趣小遊戲</a>
 </body>
 <a style="color:white;" href="前端3.html"><span class="material-symbols-outlined">
 arrow_circle_left</a>
