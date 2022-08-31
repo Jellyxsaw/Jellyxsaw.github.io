@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+    <head>
+        <title>8/31練習</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <body>
+      <nav style="position:sticky;top:0px;">
+            <div class="nav-center">
+          <h4><a href="index.html">X'saw Blog</a></h4>
+          <ul class="nav-links">
+            <li><a href="page1.html">python practice</a></li>
+            <li><a href="前端1.html">web practice</a></li>
+            <li><a href="works.html">my works</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+      </nav>
+        <h1>8/31練習</h1>
+        <p class="questname">a121: 質數又來囉</p>
+        <pre class="quest">題目:輸入整數a,b，其中(1<=a<=b<=100000000)，輸出a,b間共n個質數</pre>
+        <pre class="thinkroute">思路:一開始的想法是設計一個函式primelist輸出list包含2~b**0.5的所有質數；再來從a~b整數分別除以list的數，若皆無法整除則為質數。
+          但發現這方法過慢，原因在於primelist本身找質數方法過慢(一層一層疊上去的for檢查迴圈，也有可能其實有更好的寫法我不會。)。
+          後來改良成函式primelist2，他會輸出一個list包含a**0.5以下所有滿足不為2n/3n/n(6n+5)/n(6n+7)的數字。此方法同樣為創造檢查數列(a-b之間元素)而快上許多，不需跑回圈重複檢查。
+          再來就是處理一下2的問題(預設跑3n+2)，最後用count來計算。若要求輸出所有質數可以創建一個anslist來放資料。
+        </pre>
+        <textarea readonly rows="34" style=" border:none; resize:none; outline:none;">
+      def primelist2(a):
+          plist=[2,3]
+          for i in range(int(a/6)+1):
+              if (i*6+5) %2!=0 and (i*6+5)%3!=0:
+                  plist.append(i*6+5)
+              if (i * 6 + 7) % 2 != 0 and (i * 6 + 7) % 3 != 0:
+                  plist.append(i * 6 + 7)
+          return plist
+      
+      def area_prime(a,b):
+          plist=primelist2(int(b**0.5))
+          count=0
+          if a<=2 and b>=2:
+              a=3
+              count+=1
+          if a%2==0:
+              a+=1
+          for i in range(a,b+1,2):
+              count += 1
+              if i==1:
+                  count-=1
+              for prime in plist:
+                  if i%prime==0 and i!= prime :
+                      count-=1
+                      break
+          return count
+      
+      while True:
+          try:
+              a,b=input().split()
+              a,b=int(a),int(b)
+              print(area_prime(a,b))
+          except:
+              break</textarea>
+        <br/>
+        <p class="questname">a147:  Print it all</p>
+        <pre class="quest">題目:輸入n個數字，輸出低於該數字從1開始並且非7n的正整數。 </pre>
+        <pre class="thinkroute">思路:蠻簡單的，就照著輸入並檢查7n。
+        </pre>
+        <textarea readonly rows="8" style=" border:none; resize:none; outline:none;">
+        while True:
+          a=int(input())
+          if a!=0:
+              for i in range(a):
+                  if i%7!=0:
+                      print(i,end=' ')
+              print()
+          else:break</textarea>
+        <br/>     
+        <p class="questname">a148: You Cannot Pass?!</p>
+        <pre class="quest">題目:輸入n筆資料，每筆資料第一個數字表示將有幾筆成績，輸出yes若平均成績小於等於59；否則輸出no</pre>
+        <pre class="thinkroute">思路:分別計算並判斷。
+        </pre>
+        <textarea readonly rows="11" style=" border:none; resize:none; outline:none;">
+        while True:
+          try:
+              score=0
+              a=input().split()
+              for i in range(1,int(a[0])+1):
+                  score+=int(a[i])
+              if score/int(a[0])<=59:
+                  print('yes')
+              else:
+                  print('no')
+          except:break</textarea>
+        <br/>
+            
+        <a style="color:white;" href="page9.html"><span class="material-symbols-outlined">
+arrow_circle_left</a>
+</span>
+        <span class="material-symbols-outlined"><a style="color:white;" href="index.html">
+      home</a>
+      </span>
+        <a style="color:white;" href="page11.html"><span class="material-symbols-outlined">
+arrow_circle_right
+</span>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>
