@@ -81,6 +81,7 @@ textarea{
 	pointer-events: none;
 }
 
+
 .arrow_box:after {
 	border-color: rgba(136, 183, 213, 0);
 	border-right-color: #88b7d5;
