@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+    <head>
+        <title>8/25練習</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <body>
+        <nav style="position:sticky;top:0px;">
+            <div class="nav-center">
+              <h4><a href="index.html">X'saw Blog</a></h4>
+              <ul class="nav-links">
+                <li><a href="page1.html">python practice</a></li>
+                <li><a href="前端1.html">web practice</a></li>
+                <li><a href="works.html">my works</a></li>
+                <li><a href="about.html">about</a></li>
+                <li><a href="">contact</a></li>
+              </ul>
+            </div>
+          </nav>
+        <h1>8/25練習</h1>
+        <p class="questname">a015:翻轉矩陣</p>
+        <pre class="quest">
+題目:輸入若干矩陣(每個矩陣會先有一行輸入row/col再來N行為矩陣內容。)，輸出翻轉後的矩陣。
+例如輸入:2 3    則要求輸出   3  8
+        3 1 2              1  5 
+        8 5 4              2  4 </pre>
+        <pre class="thinkroute">思路:用無限迴圈來解決輸入問題，再來分別以a,b紀錄row/col，製作memo儲存輸入的資料，</pre>
+        <textarea readonly rows="14" style="border:none; resize:none; outline:none;">
+          答案:
+          while True:
+          try:
+              a,b=input().split()
+              a,b=int(a),int(b)
+              memo=[]
+              for i in range(a):
+                  memo.append(input().split())
+              for j in range(b):
+                  for k in range(a):
+                      print(memo[k][j],end=' ')
+                  print()
+          except:break  </textarea>
+        <br/>
+        <p class="questname">a017: 五則運算</p>
+        <pre class="quest">題目:輸入N個資料，依照規則進行運算。
+    例如:2 * ( 3 + 4 ) * 5 輸出70</pre>
+        <pre class="thinkroute">思路:以while迴圈解決輸入問題，再來以內建eval函式進行運算，
+    又題目要求輸出為整數，故以//整數除法來代替/除法。</pre>
+        <textarea readonly rows="7
+        " style=" border:none; resize:none; outline:none;">
+          答案:
+          while True:
+            try:
+                print(eval(input().replace('/','//')))
+            except:
+                break </textarea>
+        <br/>
+        <p class="questname">a020: 身分證檢驗</p>
+        <pre class="quest">題目:依照身分證規則，檢驗該身分證是否為真。若為真輸出real/為否輸出fake </pre>
+        <a href="https://zh.m.wikipedia.org/zh-tw/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E5%9C%8B%E6%B0%91%E8%BA%AB%E5%88%86%E8%AD%89">規則可參考維基百科</a>
+        <pre class="thinkroute">思路:因為最後需要整除10，故直接將首位字母依照規則運算後取對10的餘數。
+    例如F=15,依照規則1*1+5*5=26，26對10餘6,故計算總額之count直接+6即可。
+    再來依照規則分別加總，最後判斷是否整除而輸出真假。</pre>
+        <textarea readonly rows="26" style=" border:none; resize:none; outline:none;">
+        答案:num=input()
+        count=0
+        if num[0]=="A"or num[0]=="M"or num[0]=="W":
+            count+=1
+        if num[0]=="K"or num[0]=="L"or num[0]=="Y":
+            count+=2
+        if num[0]=="J"or num[0]=="V"or num[0]=="X":
+            count+=3
+        if num[0]=="H"or num[0]=="U":
+            count+=4
+        if num[0]=="G"or num[0]=="T":
+            count+=5
+        if num[0]=="F"or num[0]=="S":
+            count+=6
+        if num[0]=="E"or num[0]=="R":
+            count+=7
+        if num[0]=="D"or num[0]=="O"or num[0]=="Q":
+            count+=8
+        if num[0]=="C"or num[0]=="I"or num[0]=="P":
+            count+=9
+        
+        for i in range(1,10):
+            count+=int(num[i])*(9-i)
+        count+=int(num[9])
+        print('real') if count%10==0 else print('fake')</textarea>
+        <br/>
+            
+            
+        <a style="color:white;" href="page3.html"><span class="material-symbols-outlined">
+arrow_circle_left</a>
+</span>
+        <span class="material-symbols-outlined"><a style="color:white;" href="index.html">
+      home</a>
+      </span>
+        <a style="color:white;" href="page5.html"><span class="material-symbols-outlined">
+arrow_circle_right
+</span>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>

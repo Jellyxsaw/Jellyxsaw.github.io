@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+    <head>
+        <title>9/3練習</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <body>
+      <nav style="position:sticky;top:0px;">
+            <div class="nav-center">
+          <h4><a href="index.html">X'saw Blog</a></h4>
+          <ul class="nav-links">
+            <li><a href="page1.html">python practice</a></li>
+            <li><a href="前端1.html">web practice</a></li>
+            <li><a href="works.html">my works</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+      </nav>
+        <h1>9/3練習</h1>
+        <p class="questname">a244: 新手訓練 ~ for + if</p>
+        <pre class="quest">題目:<a href="https://zerojudge.tw/ShowProblem?problemid=a229">詳見此</a>總之蠻簡單</pre>
+        <pre class="thinkroute">思路:順順的寫，蠻簡單。
+        </pre>
+        <textarea readonly rows="10" style=" border:none; resize:none; outline:none;">
+        for i in range(int(input())):
+            a,b,c=[int(i) for i in input().split()]
+            if a==1:
+                print(b+c)
+            if a==2:
+                print(b-c)
+            if a==3:
+                print(b*c)
+            if a==4:
+                print(b//c)</textarea>
+        <br/>
+        <p class="questname">a248: 新手訓練 ~ 陣列應用 </p>
+        <pre class="quest">題目:輸入a,b,c；輸出a/b取到小數點後c位(四捨五入)</pre>
+        <pre class="thinkroute">思路:我知道先把a/b各乘以10的c次方再相除換成陣列輸出蠻簡單，但想挑戰一下自我(?，所以用了比較純數學的寫法:
+            decimal可以使用精確的小數(從原本float的二進位轉成10進位儲存)，localcontext可以決定位數以及無條件捨去。用stack來處理位數問題(原本的位數判斷會含有小數點前的數)。
+            中間處理一下提早除淨的小數以規定格式輸出。(真的蠻麻煩，而且效能應該不彰，還是用字串處理簡單方便。)
+        </pre>
+        <textarea readonly rows="36" style=" border:none; resize:none; outline:none;">
+            import decimal
+            from decimal import Decimal
+            from decimal import localcontext
+            while True:
+                try:
+                    a, b, c = [Decimal(i) for i in input().split()]
+                    with localcontext() as ctx:
+                        ans = a / b
+                        stack = 0
+                        while ans > 1:
+                            ans /= 10
+                            stack += 1
+                        while ans < 0.1:
+                            ans *= 10
+                            stack -= 1
+                        ctx.prec = int(c) + stack           #小數點後幾位
+                        ctx.rounding = decimal.ROUND_DOWN   #無條件捨去
+                        if len(str(a / b)) < int(c) + stack + 1:
+                            ans = str(a / b)
+                            if len(str(a/b))==1:
+                                ans += '.'
+                                while len(ans) < int(c) + stack + 1:
+                                    ans += '0'
+                            else:
+                                if a/b>1:
+                                    while len(ans) < int(c) + stack + 1:
+                                        ans += '0'
+                                else:
+                                    while len(ans) < int(c) + stack + 2:
+                                        ans += '0'
+                            print(ans)
+                        else:
+                            print(a / b)
+                except:
+                    break  </textarea>
+        <br/>
+        <p class="questname">a263: 日期差幾天</p>
+        <pre class="quest">題目:輸入兩個日期，要求輸出兩日期差的天數。</pre>
+        <pre class="thinkroute">思路:可以用dates秒解(X作弊(O，不過因為是練習所以...總之年月日分開計算，分別將兩個日期換成相對西元0.0.0的絕對天數相減後輸出。
+            年先-1，再*365後處理閏年；月也-1，以字典方式換算；天就直接加。最後處理當年是閏年且月份為3月以上，則天數再加一。(其實能import適合的函式就import最好QQ)
+        </pre>
+        <textarea readonly rows="26" style=" border:none; resize:none; outline:none;">
+        while True:
+            try:
+                y1,m1,d1=[int(i) for i in input().split()]
+                y2,m2,d2=[int(i) for i in input().split()]
+                month={0:0,1:31,2:59,3:90,4:120,5:151,6:181,7:212,8:243,9:273,10:304,11:334}
+                y1-=1
+                m1-=1
+                y2-=1
+                m2-=1
+                dayofone=365*y1+y1//4-y1//100+y1//400+month[m1]+d1
+                dayoftwo=365*y2+y2//4-y2//100+y2//400+month[m2]+d2
+                if (y1+1)%4==0:
+                    if m1>1:
+                        dayofone+=1
+                        if (y1+1)%100==0 and (y1+1)%400!=0:
+                            dayofone-=1
+                if (y2+1)%4==0:
+                    if m2>1:
+                        dayoftwo+=1
+                        if (y2+1)%100==0 and (y2+1)%400!=0:
+                            dayoftwo-=1
+                print(abs(dayofone-dayoftwo))
+            except :
+                break  </textarea>
+        <br/>     
+            
+        <a style="color:white;" href="page12.html"><span class="material-symbols-outlined">
+arrow_circle_left</a>
+</span>
+        <span class="material-symbols-outlined"><a style="color:white;" href="index.html">
+      home</a>
+      </span>
+        <a style="color:white;" href="page14.html"><span class="material-symbols-outlined">
+arrow_circle_right
+</span>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>

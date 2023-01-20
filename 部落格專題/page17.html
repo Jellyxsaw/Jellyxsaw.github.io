@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+    <head>
+        <title>9/7練習</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <body>
+      <nav style="position:sticky;top:0px;">
+            <div class="nav-center">
+          <h4><a href="index.html">X'saw Blog</a></h4>
+          <ul class="nav-links">
+            <li><a href="page1.html">python practice</a></li>
+            <li><a href="前端1.html">web practice</a></li>
+            <li><a href="works.html">my works</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+      </nav>
+        <h1>9/7練習</h1>
+        <p class="questname">a694: 吞食天地2</p>
+        <pre class="quest">題目:<a href="https://zerojudge.tw/ShowProblem?problemid=a694">詳見此</a></pre>
+        <pre class="thinkroute">思路:和第一題很像，建立二維陣列，引入加總函式加快一點速度。
+            先X軸加總後再Y軸加總，最後輸出很像算幾何，總面積([endx][endy])扣掉兩個長方形([endx][starty-1]以及[startx-1][endy])，加回來重疊的部分([startx-1][starty-1])。
+        </pre>
+        <textarea readonly rows="20" style=" border:none; resize:none; outline:none;width:70%;">
+            from itertools import accumulate
+            while True:
+                try:
+                    foodlist=[]
+                    a,b=input().split()
+                    sumlist = [[0] for i in range(int(a))]
+                    totallist=[[0 for j in range(int(a)+1)] for i in range(int(a)+1)]
+                    for g in range(int(a)):
+                        foodlist.append([int(i) for i in input().split()])
+                    for i in range(int(a)):
+                        sumlist[i]+=list(accumulate(foodlist[i]))
+                    for i in range(int(a)):
+                        for j in range(int(a)+1):
+                            totallist[i+1][j]=totallist[i][j]+sumlist[i][j]
+                    for j in range(int(b)):
+                        startx,starty,endx,endy=[int(i) for i in input().split()]
+                        ans=totallist[endx][endy]+totallist[startx-1][starty-1]-totallist[endx][starty-1]-totallist[startx-1][endy]
+                        print(ans)
+                except:
+                    break</textarea>
+        <br/>
+        <p class="questname">a738: 最大公約數 </p>
+        <pre class="quest">題目:輸出兩數最大公因數</pre>
+        <pre class="thinkroute">思路:之前寫過了，我也不知道為啥會有重複的，總之就是輾轉相除。
+        </pre>
+        <textarea readonly rows="11" style=" border:none; resize:none; outline:none;">
+        while True:
+            try:
+                a, b = input().split()
+                a, b = max(int(a), int(b)), min(int(a), int(b))
+                k = a % b
+                while k != 0:
+                    a = b
+                    b = k
+                    k = a % b
+                print(b)
+            except:break</textarea>
+        <br/>
+        <p class="questname">a740: 質因數之和</p>
+        <pre class="quest">題目:輸入數字，輸出質因數總和</pre>
+        <pre class="thinkroute">思路:1~5都直接輸出，然後先計算偶數，再算奇數，並只找到平方根為止(因數成雙成對)。
+            這題最基本的演算就夠用了，數字再大就要再加入一些條件。
+        </pre>
+        <textarea readonly rows="18" style=" border:none; resize:none; outline:none;">
+        while True:
+            try:
+                a=int(input())
+                if a<6:
+                    print(a)
+                else:
+                    ans=0
+                    while a%2==0:
+                        ans+=2
+                        a/=2
+                    for i in range(3,int(a**0.5)+1,2):
+                        while a%i==0:
+                            ans+=i
+                            a/=i
+                    if a!=1:
+                        ans+=a
+                    print(int(ans))
+            except:break</textarea>
+        <br/>     
+            
+        <a style="color:white;" href="page16.html"><span class="material-symbols-outlined">
+arrow_circle_left</a>
+</span>
+        <span class="material-symbols-outlined"><a style="color:white;" href="index.html">
+      home</a>
+      </span>
+        <a style="color:white;" href="page18.html"><span class="material-symbols-outlined">
+arrow_circle_right
+</span>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>

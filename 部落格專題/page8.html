@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <title>8/29練習</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <body>
+      <nav style="position:sticky;top:0px;">
+            <div class="nav-center">
+          <h4><a href="index.html">X'saw Blog</a></h4>
+          <ul class="nav-links">
+            <li><a href="page1.html">python practice</a></li>
+            <li><a href="前端1.html">web practice</a></li>
+            <li><a href="works.html">my works</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+      </nav>
+        <h1>8/29練習</h1>
+        <p class="questname">a054: 身分證首碼計算機</p>
+        <pre class="quest">題目:輸入身分證後九碼，輸出第一碼的所有可能性。</pre>
+        <pre class="thinkroute">思路:先建立可能性的dictionary，再來計算後九碼的檢查值，最後用10減去(該值餘10)再從字典輸出答案。</pre>
+        <textarea readonly rows="7" style=" border:none; resize:none; outline:none;width:45%">
+          tlist={10:'BNZ',1:"AMW",2:'KLY',3:'JVX',4:'HU',5:'GT',6:'FS',7:'ER',8:'DOQ',9:'CIP'}
+          num=input()
+          count=0
+          for i in range(1,10):
+              count+=int(num[i-1])*(9-i)
+          count+=int(num[8])
+          print(tlist[10-(count%10)])</textarea>
+        <br/>
+        <p class="questname">a058: 整數分堆</p>
+        <pre class="quest">題目:輸入n代表有幾筆資料，再來給予n個整數，將整數以餘3分堆，輸出分堆結果3k//3k+1//3k+2分別有幾個。</pre>
+        <pre class="thinkroute">思路:直接分堆輸出。
+        </pre>
+        <textarea readonly rows="12" style=" border:none; resize:none; outline:none;">
+          k1=0
+          k2=0
+          k3=0
+          for i in range(int(input())):
+              a=int(input())
+              if a%3==1:
+                  k1+=1
+              if a%3==2:
+                  k2+=1
+              if a%3==0:
+                  k3+=1
+          print(k3,k2,k1)</textarea>
+        <br/>
+        <p class="questname">a059: 完全平方和</p>
+        <pre class="quest">題目:先輸入n表示共n筆資料，每筆資料包含a,b代表範圍，輸出每筆範圍中完全平方數的和。
+          例如3~25應輸出4+9+16+25=54 </pre>
+        <pre class="thinkroute">思路:先用第一個迴圈處理n筆資料，再來尋找範圍之中的完全平方數若+1+1開根號驗證肯定太慢。
+          故上下界分別開根號，例如4~25>>2~5，再從2的平方加到5的平方就是答案。而下界需先-1開根號再+1，上界只需開根號。
+          (for裡面的上界也+1是因為range只會跑到該值-1，故要加回來)，最後依格式輸出答案。</pre>
+        <textarea readonly rows="6" style=" border:none; resize:none; outline:none;">
+          for i in range(int(input())):
+            a,b=int(input()),int(input())
+            ans=0
+            for j in range(int((a-1)**0.5+1),int(b**0.5)+1):
+                ans+=j**2
+            print(f'Case {i+1}: {ans}')</textarea>
+        <br/>     
+            
+        <a style="color:white;" href="page7.html"><span class="material-symbols-outlined">
+arrow_circle_left</a>
+</span>
+        <span class="material-symbols-outlined"><a style="color:white;" href="index.html">
+      home</a>
+      </span>
+        <a style="color:white;" href="page9.html"><span class="material-symbols-outlined">
+arrow_circle_right
+</span>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>

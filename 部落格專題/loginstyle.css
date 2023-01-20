@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&family=Noto+Sans:ital,wght@1,600&display=swap');
+body{
+    background: no-repeat;
+    background-image: url(背景.webp);   
+}
+html{
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+.mother{
+    padding: 50vh 33vw;
+    position: absolute;top:0%;right:0%;
+}
+.first{
+    height: 40%;
+    width: 100%;
+    position: absolute;top:0%;left: 0%;
+    background:radial-gradient(#e66465, #9198e5);
+}
+.go{
+    padding: 0px 20px;
+    position: absolute;top:0%;right: 0%;
+}
+.ff{
+    position: absolute;top:25%;left: 7%;
+    font-size: 1.5rem;
+}
+.second{
+    height: 30%;
+    width: 100%;
+    position: absolute;top:40%;left: 0%;
+    background-color: rgb(207, 190, 190);
+}
+.field{
+    background-color: white;
+    position: absolute;top:0%;left: 0%;
+    height: 90%;
+    width: 97%;
+}
+.leg{
+    position: relative;
+    top: 10px;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.c1{
+    position: absolute;top:12%;left: 2%;
+
+}
+.c2{
+    position: absolute;top:42%;left: 2%;
+
+}
+.c3{
+    position: absolute;top:72%;left: 2%;
+
+}
+.c4{
+    position: absolute;top:12%;left: 45%;
+
+}
+.c5{
+    position: absolute;top:42%;left: 45%;
+
+}
+.c6{
+    position: absolute;top:72%;left: 45%;
+
+}
+.third{
+    height: 30%;
+    width: 100%;
+    position: absolute;top:70%;left: 0%;
+      background:repeating-linear-gradient(45deg, 
+      #000 0, #000 5%, 
+      #f90 5%, #f90 10%);;
+}
+div>fieldset>div{
+    height: 60px;
+    width: 300px;
+}
+div>input{
+    position: absolute;
+    top: 30px;
+    left: 0%;
+    border-color: rgb(224, 224, 224) ;
+    border-width: 1px;
+
+}
+input:focus {
+    outline: none;
+    border-color: green;
+    border-width: 2px;
+  }
+input:invalid{
+    outline: none;
+    border-color: rgb(255, 0, 0);
+    border-width: 3px;
+}
+.buttonplace{
+    position: absolute;
+    top:40%;left: 5%;
+    width: 400px;
+    height: 150px;
+}
+
+.button{
+    background-color: #9198e5;
+    color: rgb(255, 0, 0);
+    font-size: 3rem;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: rgb(60, 241, 241);
+    
+  }
+a:visited{
+    text-decoration: none;
+    color: rgb(60, 241, 241);
+}

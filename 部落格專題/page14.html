@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+    <head>
+        <title>9/4練習</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <body>
+      <nav style="position:sticky;top:0px;">
+            <div class="nav-center">
+          <h4><a href="index.html">X'saw Blog</a></h4>
+          <ul class="nav-links">
+            <li><a href="page1.html">python practice</a></li>
+            <li><a href="前端1.html">web practice</a></li>
+            <li><a href="works.html">my works</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+      </nav>
+        <h1>9/4練習</h1>
+        <p class="questname">a271: 彩色蘿蔔</p>
+        <pre class="quest">題目:<a href="https://zerojudge.tw/ShowProblem?problemid=a271">詳見此</a>有點複雜</pre>
+        <pre class="thinkroute">思路:建立weight來記錄兔子每天的體重(因為毒會疊加且當天不算，所以使用列表方式來計算較簡單。)。
+            依照規則記錄每天體重，最後輸出結果。
+</pre>
+        <textarea readonly rows="28" style=" border:none; resize:none; outline:none;">
+        for i in range(int(input())):
+            x,y,z,w,n,m=[int(i) for i in input().split()]
+            carrot={0:0,1:x,2:y,3:-z,4:-w}
+            eat=input().split()
+            if len(eat)==0:
+                print(f'{m}g')
+            else:
+                weight=[0 for i in range(len(eat)+2)]
+                weight[0]=m
+                for i in range(len(weight)):
+                    try:
+                        if int(eat[i])==4:    #處理毒的部分
+                            for j in range(i+2,len(weight)):
+                                weight[j]-=n
+                        weight[i+1]+=weight[i]
+                        if weight[i+1]<0:
+                            print('bye~Rabbit')
+                            break
+                        weight[i+1]+=carrot[int(eat[i])]
+                        if weight[i+1]<0:
+                            print('bye~Rabbit')
+                            break
+                        if i==len(weight)-3:
+                            print(f'{weight[-2]}g')
+                            break
+                    except:
+                        pass </textarea>
+        <br/>
+        <p class="questname">a291: nAnB problem </p>
+        <pre class="quest">題目:經典團康遊戲幾A幾B，照規則輸出。</pre>
+        <pre class="thinkroute">思路:使用output一次輸出節省時間(大概吧)，先看有幾A，符合條件的把密碼轉成X，猜測轉成Y；
+            再看B，一樣符合條件的把密碼轉成X，最後輸出。應該有好一點的方法，用replace有點浪費效能。
+        </pre>
+        <textarea readonly rows="22" style=" border:none; resize:none; outline:none;">
+        while True:
+            output = ''
+            try:
+                ans=input().replace(' ','')
+                for i in range(int(input())):
+                    testans=ans
+                    tryans=input().replace(' ','')
+                    a=0
+                    b=0
+                    for j in range(4):
+                        if tryans[j]==testans[j]:
+                            a+=1
+                            testans=testans.replace(testans[j],'X',1)
+                            tryans=tryans.replace(tryans[j],'Y',1)
+                    for j in range(4):
+                        if tryans[j] in testans:
+                            b+=1
+                            testans = testans.replace(tryans[j], 'X', 1)
+                    output += f'{a}A{b}B\n'
+                print(output)
+            except:
+                break</textarea>
+        <br/>
+        <p class="questname">a410: 解方程</p>
+        <pre class="quest">題目:輸入ax+by=c;dx+ey=f，輸出方程式的解。</pre>
+        <pre class="thinkroute">思路:用公式解，先看分母的判斷式，不為0則有一組解，若為0則再判斷為重疊或無解。
+            若不為0則照規則輸出(這寫法蠻繞的，直接看小數點後補0應該比較快，但都寫好就算了。)。
+        </pre>
+        <textarea readonly rows="51" style=" border:none; resize:none; outline:none;">
+            a,b,c,d,e,f=[int(i) for i in input().split()]
+            judge=(a*e-d*b)
+            if judge != 0:
+                x = (c*e-f*b)/judge
+                y = (a*f-d*c)/judge
+                outx,outy=str(x),str(y)
+                if x>0:
+                    if len(outx)>3 :
+                        print(f'x={round(x,2)}')
+                    else:
+                        if '.' in outx:
+                            outx+='0'
+                            print('x='+outx)
+                        else:
+                            outx+='.00'
+                            print('x='+outx)
+                else:
+                    if len(outx)>4 :
+                        print(f'x={round(x,2)}')
+                    else:
+                        if '.' in outx:
+                            outx+='0'
+                            print('x='+outx)
+                        else:
+                            outx+='.00'
+                            print('x='+outx)
+                if y>0:
+                    if len(outy)>3:
+                        print(f'y={round(y,2)}')
+                    else:
+                        if '.' in outy:
+                            outy+='0'
+                            print('y='+outy)
+                        else:
+                            outy+='.00'
+                            print('y='+outy)
+                else:
+                    if len(outy)>4:
+                        print(f'y={round(y,2)}')
+                    else:
+                        if '.' in outy:
+                            outy+='0'
+                            print('y='+outy)
+                        else:
+                            outy+='.00'
+                            print('y='+outy)
+            else:
+                if (c*e-f*b) ==0 and (a*f-d*c)==0:
+                    print('Too many')
+                else:
+                    print('No answer')</textarea>
+        <br/>     
+            
+        <a style="color:white;" href="page13.html"><span class="material-symbols-outlined">
+arrow_circle_left</a>
+</span>
+        <span class="material-symbols-outlined"><a style="color:white;" href="index.html">
+      home</a>
+      </span>
+        <a style="color:white;" href="page15.html"><span class="material-symbols-outlined">
+arrow_circle_right
+</span>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>

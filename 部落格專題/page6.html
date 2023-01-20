@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+    <head>
+        <title>8/27練習</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <body>
+      <nav style="position:sticky;top:0px;">
+            <div class="nav-center">
+          <h4><a href="index.html">X'saw Blog</a></h4>
+          <ul class="nav-links">
+            <li><a href="page1.html">python practice</a></li>
+            <li><a href="前端1.html">web practice</a></li>
+            <li><a href="works.html">my works</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+      </nav>
+        <h1>8/27練習</h1>
+        <p class="questname">a034: 二進位轉換</p>
+        <pre class="quest">題目:輸入n個整數，輸出其二進位轉換之值。</pre>
+        <pre class="thinkroute">思路:(完全可以直接用格式化作弊解題，但我比較想練習思考邏輯。)
+        以迴圈解決輸入問題，再來先找出範圍，例如輸入300，則找出他在2的9次方512之下，則應有九位數，故area函式需輸出9。
+        接下來用for迴圈判斷是否超過2的n次方，若有則ans+1無則+0(字串形式)，最後輸出ans。</pre>
+        <textarea readonly rows="20" style=" border:none; resize:none; outline:none;">
+          while True:
+          try:
+              k=int(input())
+              def area(a): #找出數字範圍在2的幾次方以下，決定有幾位數
+                  i=0
+                  while 2**i<a:
+                      i+=1
+                  if 2**i==a:  #若剛好整除 則須多一位數
+                      return i
+                  return i-1
+              ans=''
+              for j in range(area(k),-1,-1):
+                  if k - 2 ** j < 0 :
+                      ans+='0'
+                  else:
+                      ans+='1'
+                      k -= 2 ** j
+              print(ans)
+          except:break</textarea>
+        <br/>
+        <p class="questname">a038: 數字翻轉</p>
+        <pre class="quest">題目:輸入任意數字，並將其數字全部倒轉，有0則去掉。</pre>
+        <pre class="thinkroute">思路:若以字串形式全部倒轉，則0無法消除，故倒轉完後將其轉成整數型態消除0再輸出。
+        </pre>
+        <textarea readonly rows="1
+        " style=" border:none; resize:none; outline:none;">
+        print(int(input()[::-1]))</textarea>
+        <br/>
+        <p class="questname">a040: 阿姆斯壯數</p>
+        <pre class="quest">題目:阿姆斯壯數定義:N位數的整數，並其所有位數的N次方和恰好為該數。如153/1634。
+          輸入兩數字作為範圍，輸出該範圍所有的阿姆斯壯數，若無則輸出none。 </pre>
+        <pre class="thinkroute">思路:先製作anslist儲存阿姆，若沒存到則輸出none。
+        建立for迴圈尋找範圍內的數，每個數先預設ans儲存位數的加總。再建立一個迴圈計算位數次方和，若符合就丟入anslist。
+        最後視情況輸出none或答案。</pre>
+        <textarea readonly rows="14" style=" border:none; resize:none; outline:none;">
+          anslist=[]
+          a,b=input().split()  
+          for i in range(int(a),int(b)+1,1): #範圍
+              ans=0
+              for q in str(i):   #i的每個位數
+                  ans+=int(q)**len(str(i))
+              if ans==int(i):
+                  anslist.append(ans)
+          if anslist==[]:
+              print('none')
+          else:
+              for i in anslist:
+                  print(i,end=' ')</textarea>
+            
+        <br/>    
+        <a style="color:white;" href="page5.html"><span class="material-symbols-outlined">
+arrow_circle_left</a>
+</span>
+        <span class="material-symbols-outlined"><a style="color:white;" href="index.html">
+      home</a>
+      </span>
+        <a style="color:white;" href="page7.html"><span class="material-symbols-outlined">
+arrow_circle_right
+</span>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>

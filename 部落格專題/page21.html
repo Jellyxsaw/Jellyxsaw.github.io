@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+    <head>
+        <title>9/11練習</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <body>
+      <nav style="position:sticky;top:0px;">
+            <div class="nav-center">
+          <h4><a href="index.html">X'saw Blog</a></h4>
+          <ul class="nav-links">
+            <li><a href="page1.html">python practice</a></li>
+            <li><a href="前端1.html">web practice</a></li>
+            <li><a href="works.html">my works</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+      </nav>
+        <h1>9/11練習</h1>
+        <p class="questname">b374: 眾數</p>
+        <pre class="quest">題目:<a href="https://zerojudge.tw/ShowProblem?problemid=b374">詳見此</a></pre>
+        <pre class="thinkroute">思路:用couter來製造計數的字典，再來從字典的值中找出最大值max，輸出每個max值的key。
+        </pre>
+        <textarea readonly rows="13" style=" border:none; resize:none; outline:none;">
+          from collections import Counter
+          day=int(input())
+          inpnumbers=[int(i) for i in input().split()]
+          coutlist=Counter(inpnumbers)
+          value=coutlist.values()
+          ans=[]
+          max=max(value)
+          for keys in coutlist:
+             if coutlist[keys]==max:
+                ans.append(keys)
+          ans.sort()
+          for ansers in ans:
+             print(f'{ansers} {max}')</textarea>
+        <br/>
+        <p class="questname">b510: M皇后N城堡 </p>
+        <pre class="quest">題目:<a href="https://zerojudge.tw/ShowProblem?problemid=a510">詳見此</a></pre>
+        <pre class="thinkroute">思路:很難，還沒想到，目前思路:填入一格->畫棋盤->判斷有無空格//有則重複，沒有則False，最後計算能填完的次數。
+        </pre>
+        <textarea readonly rows="0" style=" border:none; resize:none; outline:none;">
+        </textarea>
+        <br/>
+        <p class="questname">b511: 換銅板</p>
+        <pre class="quest">題目:<a href="https://zerojudge.tw/ShowProblem?problemid=b511">詳見此</a></pre>
+        <pre class="thinkroute">思路:運用DFS，窮舉每個硬幣的可能性直到滿足條件:
+          例如有四個硬幣，先由小到大排，再來從0,0,0,0開始，(其中個別硬幣上限是目標對每個硬幣的整數除法+1，例如51元對5元硬幣最多就到10)
+          如果滿足就輸出，如果不滿足繼續加到上限為止，假設到0,0,0,3超過而0,0,0,2不滿足，就往下走，從0,0,1,0...繼續。
+          最後把所有答案排序輸出。
+        </pre>
+        <textarea readonly rows="19" style=" border:none; resize:none; outline:none;">
+          lens = int(input())   #數量
+          coin = [int(i) for i in input().split()]   # 錢
+          target = int(input())    # 總金額
+          ans = []               # 結果的串列
+          def howsum(path):
+              global a,coin,target
+              if len(path) == lens:
+                  if sum([a*b for a, b in zip(path, coin)]) == target:
+                      ans.append(path)
+                  return
+              for i in range(target//coin[len(path)]+1):
+                  howsum(path+[i])
+          howsum([])
+          ans.sort()
+          for ansers in ans:
+            print('(', end='')
+            print(*ansers, sep =',', end=')')
+            print()</textarea>
+        <br/>     
+            
+        <a style="color:white;" href="page20.html"><span class="material-symbols-outlined">
+arrow_circle_left</a>
+</span>
+        <span class="material-symbols-outlined"><a style="color:white;" href="index.html">
+      home</a>
+      </span>
+        <a style="color:white;" href="page22.html"><span class="material-symbols-outlined">
+arrow_circle_right
+</span>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>

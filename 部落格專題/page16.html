@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+    <head>
+        <title>9/6練習</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <body>
+      <nav style="position:sticky;top:0px;">
+            <div class="nav-center">
+          <h4><a href="index.html">X'saw Blog</a></h4>
+          <ul class="nav-links">
+            <li><a href="page1.html">python practice</a></li>
+            <li><a href="前端1.html">web practice</a></li>
+            <li><a href="works.html">my works</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+      </nav>
+        <h1>9/6練習</h1>
+        <p class="questname">a528: 大數排序</p>
+        <pre class="quest">題目:給予n個數，排列後輸出。</pre>
+        <pre class="thinkroute">思路:python的int儲存位數蠻大，直接排列就過了~
+        </pre>
+        <textarea readonly rows="9" style=" border:none; resize:none; outline:none;">
+        while True:
+            try:
+                list1=[]
+                for i in range(int(input())):
+                    list1.append(int(input()))
+                s_list1=sorted(list1)
+                for ans in s_list1:
+                    print(ans)
+            except:break</textarea>
+        <br/>
+        <p class="questname">a647: 投資專家 </p>
+        <pre class="quest">題目:<a href="https://zerojudge.tw/ShowProblem?problemid=a647">詳見此</a></pre>
+        <pre class="thinkroute">思路:用decimal精確計算，再手動四捨五入(超麻煩)。似乎可以用float再加減誤差值以外的小數來平衡誤差。
+            ，不過只是大概了解而已就沒使用了(視正負+0.0000001//-0.0000001，因為float的結構是以1/2+1/4+...二進位的表示方式，但真的沒很懂XD)
+            然後依規定輸出。
+        </pre>
+        <textarea readonly rows="27" style=" border:none; resize:none; outline:none;width:45%;">
+            from decimal import Decimal
+            from decimal import localcontext
+            for i in range(int(input())):
+                with localcontext() as ctx:
+                    a,b=[Decimal(j) for j in input().split()]
+                    profit=b/a*100-100
+                    check=profit
+                    ans=str(profit)
+                    if profit == 0:
+                        ans += '.00'
+                    if len(ans)-ans.index('.') > 3:
+                        if int(ans[ans.index('.') + 3]) > 4:
+                            if profit > 0:
+                                profit += Decimal(0.01)
+                                ans = str(profit)[:ans.index('.') + 3]
+                            else:
+                                profit -= Decimal(0.01)
+                                ans = str(profit)[:ans.index('.') + 3]
+                        else:
+                            ans = str(profit)[:ans.index('.')+3]
+                    if len(ans) - ans.index('.') == 2:
+                        ans += '0'
+                    ans += '%'
+                    if check >= 10 or check <= -7 :
+                        print(f'{ans} dispose')
+                    else:
+                        print(f'{ans} keep')</textarea>
+        <br/>
+        <p class="questname">a693: 吞食天地</p>
+        <pre class="quest">題目:輸入一個數列，要求輸出多筆數列n項到m項的和</pre>
+        <pre class="thinkroute">思路:一開始只用簡單的sum來求和，發現速度過慢。
+            改成先把每一項都加好，再相減(例如要算5~10項，也就是[1~10項和]-[1~4項和])，不用重複運算，快上許多。
+        </pre>
+        <textarea readonly rows="12" style=" border:none; resize:none; outline:none;">
+        while True:
+            try:
+                a,b=input().split()
+                foodlist=[int(i) for i in input().split()]
+                sumlist=[0 for i in range(int(a)+1)]
+                for i in range(int(a)):
+                    sumlist[i+1]=sumlist[i]+foodlist[i]
+                for j in range(int(b)):
+                    start,end=input().split()
+                    print(sumlist[int(end)]-sumlist[int(start)-1])
+            except:
+                break</textarea>
+        <br/>     
+            
+        <a style="color:white;" href="page15.html"><span class="material-symbols-outlined">
+arrow_circle_left</a>
+</span>
+        <span class="material-symbols-outlined"><a style="color:white;" href="index.html">
+      home</a>
+      </span>
+        <a style="color:white;" href="page17.html"><span class="material-symbols-outlined">
+arrow_circle_right
+</span>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>

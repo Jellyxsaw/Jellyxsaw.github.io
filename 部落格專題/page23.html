@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <head>
+        <title>9/13練習</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <body>
+      <nav style="position:sticky;top:0px;">
+            <div class="nav-center">
+          <h4><a href="index.html">X'saw Blog</a></h4>
+          <ul class="nav-links">
+            <li><a href="page1.html">python practice</a></li>
+            <li><a href="前端1.html">web practice</a></li>
+            <li><a href="works.html">my works</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+      </nav>
+        <h1>9/13練習</h1>
+        <p class="questname">b557: 直角三角形</p>
+        <pre class="quest">題目:<a href="https://zerojudge.tw/ShowProblem?problemid=b557">詳見此</a></pre>
+        <pre class="thinkroute">思路:原本用P n取3 再一一檢查，TLE。後來改成P n取2，找第三邊符合條件的數量就過了。
+        </pre>
+        <textarea readonly rows="15" style=" border:none; resize:none; outline:none;">
+          for j in range(int(input())):
+          qua=int(input()) #數字數量
+          nums=[int(i) for i in input().split()] #數字串列
+          nums.sort()
+          memo={}
+          times=0
+          for first in range(qua-1):
+              for second in range(first+1,qua):
+                  a,b=nums[first],nums[second]
+                  c=(a**2+b**2)**0.5
+                  if c%1==0:c=int(c)
+                  if c in nums:
+                      times+=nums.count(c)
+          print(times)</textarea>
+        <br/>
+        <p class="questname">b558: 求數列第n項 </p>
+        <pre class="quest">題目:<a href="https://zerojudge.tw/ShowProblem?problemid=b558">詳見此</a></pre>
+        <pre class="thinkroute">思路:先寫好table再一一輸出(題目只到500)。
+        </pre>
+        <textarea readonly rows="8" style=" border:none; resize:none; outline:none;">
+          table=[0 for i in range(501)]
+          table[0]=1
+          for i in range(500):
+              table[i+1]=table[i]+i
+          while True:
+              try:
+                  print(table[int(input())])
+              except:break</textarea>
+        <br/>
+        <p class="questname">b572: 忘了東西的傑克</p>
+        <pre class="quest">題目:<a href="https://zerojudge.tw/ShowProblem?problemid=b572">詳見此</a></pre>
+        <pre class="thinkroute">思路:很簡單，計算時間，加總依規則輸出。
+        </pre>
+        <textarea readonly rows="7" style=" border:none; resize:none; outline:none;">
+          for j in range(int(input())):
+          H1,M1,H2,M2,T=[int(i) for i in input().split()]
+          start=H1*60+M1
+          end=H2*60+M2
+          if start+T<=end:
+              print('Yes')
+          else:print('No')</textarea>
+        <br/>     
+            
+        <a style="color:white;" href="page22.html"><span class="material-symbols-outlined">
+arrow_circle_left</a>
+</span>
+        <span class="material-symbols-outlined"><a style="color:white;" href="index.html">
+      home</a>
+      </span>
+        <a style="color:white;" href="page24.html"><span class="material-symbols-outlined">
+arrow_circle_right
+</span>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>

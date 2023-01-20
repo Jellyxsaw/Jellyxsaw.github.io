@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+    <head>
+        <title>9/5練習</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <body>
+      <nav style="position:sticky;top:0px;">
+            <div class="nav-center">
+          <h4><a href="index.html">X'saw Blog</a></h4>
+          <ul class="nav-links">
+            <li><a href="page1.html">python practice</a></li>
+            <li><a href="前端1.html">web practice</a></li>
+            <li><a href="works.html">my works</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+      </nav>
+        <h1>9/5練習</h1>
+        <p class="questname">a414: 位元運算之進位篇</p>
+        <pre class="quest">題目:<a href="https://zerojudge.tw/ShowProblem?problemid=a414">詳見此</a></pre>
+        <pre class="thinkroute">思路:蠻簡單的，while除2判斷再輸出，應該可以優化，但能過就算了。
+        </pre>
+        <textarea readonly rows="9" style=" border:none; resize:none; outline:none;">
+            while True:
+            a=int(input())+1
+            if a==1:
+                break
+            ans=0
+            while a%2==0:
+                a/=2
+                ans+=1
+            print(ans)</textarea>
+        <br/>
+        <p class="questname">a417: 螺旋矩陣 </p>
+        <pre class="quest">題目:<a href="https://zerojudge.tw/ShowProblem?problemid=a417">詳見此</a></pre>
+        <pre class="thinkroute">思路:創建二維矩陣，設定初始x,y與終止x,y，方向有四種，碰到底就轉彎，依序類推。最後依照規則輸出。
+        </pre>
+        <textarea readonly rows="35" style=" border:none; resize:none; outline:none;width:45%;">
+        for i in range(int(input())):
+            a,b=[int(j) for j in input().split()]
+            pace=1  #往X走
+            x,y,=0,0
+            startx, starty, endx, endy = 0, 0, a - 1, a - 1
+            trace = []
+            for k in range(a):
+                trace.append([0 for q in range(a)])
+            for g in range(1,a*a+1):   #填入數字
+                if b==1:trace[y][x] = g          #順逆 因為輸出關係所以xy要逆轉
+                else:trace[x][y] = g
+                if i==a*a:break       #結束
+                if pace == 1: x += 1
+                if pace == 2: y += 1   #向下
+                if pace == 3: x -= 1   #向左
+                if pace == 4: y -= 1   #向上
+                if pace == 1 and x == endx and y == starty:  #往右走碰到X的底
+                    pace=2                                   #往下走
+                    starty+=1                                #初始Y+1(該行已填滿)
+                if pace == 2 and y == endy and x == endx:  #往下走碰到Y的底
+                    pace=3                                   #往左走
+                    endx-=1                                  #X底-1 (該列已填滿)
+                if pace == 3 and x == startx and y == endy: #往左走碰到X的初始
+                    pace=4                                      #往上走
+                    endy-=1                                   #Y的底-1(該行已填滿)
+                if pace == 4 and x == startx and y == starty: #往上走碰到初使值
+                    pace=1                                     #往右走
+                    startx+=1                                   #X的初使值+1(該列已填滿)
+            for lines in trace:
+                for item in lines:
+                    print(f'{item: 5d}', end='')  # 5d ->5個空白
+                print()</textarea>
+        <br/>
+        <p class="questname">a524: 手機之謎</p>
+        <pre class="quest">題目:輸入n，輸出1~n的所有排列組合。</pre>
+        <pre class="thinkroute">思路:使用backtracking演算法，先pop掉第一個字元最後append保證所有組合(123->231->312)。
+            pop掉之後(23)再pop直到長度一return。return後加回pop的元素(開始是123，3->32->321//2->23-->231///從123->231，1->13->132//3->31->312依此類推)
+            最後sorted排序reverse後依規則輸出。
+        </pre>
+        <textarea readonly rows="23" style=" border:none; resize:none; outline:none;">
+        while True:
+            try:
+                a=int(input())
+                lst1=[i for i in range(1,a+1)]
+                def permute(nums):
+                    result = []
+                    if len(nums) == 1:
+                        return [nums[:]]
+                    for i in range(len(nums)):
+                        n = nums.pop(0)
+                        pers = permute(nums)
+                        for per in pers:
+                            per.append(n)
+                        result.extend(pers)
+                        nums.append(n)
+                    return result
+                ans=permute(lst1)
+                ans=sorted(ans,reverse=True)
+                for cell in ans:
+                  for number in cell:
+                    print(number,end='')
+                  print()
+            except:break</textarea>
+        <br/>     
+            
+        <a style="color:white;" href="page14.html"><span class="material-symbols-outlined">
+arrow_circle_left</a>
+</span>
+        <span class="material-symbols-outlined"><a style="color:white;" href="index.html">
+      home</a>
+      </span>
+        <a style="color:white;" href="page16.html"><span class="material-symbols-outlined">
+arrow_circle_right
+</span>
+    </body>
+    </div>
+    <script src="script.js"></script>
+</html>
